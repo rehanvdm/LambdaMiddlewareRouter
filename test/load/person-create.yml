@@ -1,0 +1,17 @@
+config:
+  target: 'https://ryzzrc7lgb.execute-api.us-east-1.amazonaws.com/prod'
+  processor: "./person-create.js"
+  phases:
+    - duration: 10
+      arrivalRate: 1
+#    - duration: 10
+#      arrivalRate: 100
+scenarios:
+  - flow:
+    - function: "generateRandomData"
+    - post:
+        url: "/v1/person"
+        json:
+            client_id: "{{client_id}}"
+            name: "{{name}}"
+            email: "{{email}}"

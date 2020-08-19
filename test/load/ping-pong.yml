@@ -1,0 +1,14 @@
+config:
+  target: 'https://ryzzrc7lgb.execute-api.us-east-1.amazonaws.com/prod'
+  phases:
+#    - duration: 10
+#      arrivalRate: 1
+    - duration: 900
+      arrivalRate: 1
+scenarios:
+  - flow:
+    - get:
+        url: "/v1/ping"
+        json:
+          control: {}
+          data: {}
